@@ -9,7 +9,7 @@ passport.use(
     new DiscordStrategy({
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: 'http://localhost:3002/auth/callback',
+        callbackURL: process.env.CALLBACK_URL,
         scope: ['identify']
     }, (accessToken, refreshToken, profile, done) => {
         User.findOne({id: profile.id}).then((user) =>  {
