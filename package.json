@@ -1,0 +1,32 @@
+{
+  "name": "discord-poll",
+  "version": "0.0.1",
+  "description": "A discord-based poll bot with web panel.",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "discord.js": "^11.3.2"
+  },
+  "devDependencies": {
+    "debug": "~2.6.9",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "morgan": "~1.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himea-io/discord-poll.git"
+  },
+  "keywords": [
+    "discord",
+    "poll"
+  ],
+  "author": "Cédric <triozer@himea.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/himea-io/discord-poll/issues"
+  },
+  "homepage": "https://github.com/himea-io/discord-poll#readme"
+}
