@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const express = require('express')
 const session = require('express-session')
 const logger = require('morgan')
+const hbs = require('hbs')
 const cors  = require('cors')
 const mongoose = require('mongoose')
 const passport = require('passport')
@@ -12,7 +13,7 @@ require('./src/config/passport-setup')
 const app = express()
 app.use(cors())
 app.use(logger('dev'))
-app.set('view engine', 'ejs')
+app.set('view engine', 'hbs')
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
@@ -28,6 +29,8 @@ mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@
 const client = new Discord.Client()
 // trying to login to discord if fails kill the app
 client.login(process.env.TOKEN).then(() => {
+  // all routes prefixed by home
+  app.use('/poll', require('./src/routes/home').router)  
   // all routes prefixed by auth
   app.use('/poll/auth', require('./src/routes/auth').router)
   // all routes prefixed by panel

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Discord Poll</title>
+</head>
+<body>
+
+    {{#unless auth}}
+        <div class="login">
+            <h1>A discord-based poll service.</h1>
+            <a href="/poll/auth/login"><img src="https://discordapp.com/assets/192cb9459cbc0f9e73e2591b700f1857.svg" alt="discord logo"/></a>
+        </div>
+    {{else}}
+        <div>
+            <p>hey {{user.username}}</p>
+        </div>
+    {{/unless}}
+
+</body>
+<style>
+body {
+    display: flex; /* contexte sur le parent */
+    background-color: #1F1B23;
+    color: #FFF;
+}
+
+.login {
+    color: #CCC;
+    margin: auto;
+    margin-top: 15%;
+    text-align: center;
+}
+</style>
+</html>
